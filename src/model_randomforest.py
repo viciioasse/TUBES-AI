@@ -21,16 +21,16 @@ print(f"Jumlah data testing : {x_test.shape[0]} baris\n")
 def hitung_mape(y_true, y_pred):
     y_true = np.array(y_true)
     y_pred = np.array(y_pred)
-    mask = y_true != 0 
+    mask = y_true != 0
     if np.sum(mask) == 0:
         return 0.0
     return np.mean(np.abs((y_true[mask] - y_pred[mask]) / y_true[mask])) * 100
 
 rf = RandomForestRegressor(
-    n_estimators=200, 
-    max_depth=5, 
-    min_samples_split=5, 
-    random_state=42, 
+    n_estimators=200,
+    max_depth=5,
+    min_samples_split=5,
+    random_state=42,
     n_jobs=-1
 )
 rf.fit(x_train, y_train)
